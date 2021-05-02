@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(new Vector3(joystick.Horizontal*speed * Time.deltaTime, 0, 0));
         }
 
-        if (joystick.Horizontal == 0) { rigidbody.velocity = new Vector2(0, 0); }
+        if (joystick.Horizontal == 0) { transform.Translate(new Vector3(0, 0, 0)); }
 
 
 

@@ -1,0 +1,110 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.3f1 (4bef613afd59) revision 4976481'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.928; Version 2009; 64bit' Language: 'ru' Physical Memory: 16328 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\Programs\unity engine\2021.1.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/dayha/Downloads/Battletoads-main/Battletoads-main/ahaha
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52055
+Successfully changed project path to: C:/Users/dayha/Downloads/Battletoads-main/Battletoads-main/ahaha
+C:/Users/dayha/Downloads/Battletoads-main/Battletoads-main/ahaha
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 128.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.3f1 (4bef613afd59)
+[Subsystems] Discovering subsystems at path D:/Programs/unity engine/2021.1.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/dayha/Downloads/Battletoads-main/Battletoads-main/ahaha/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Vendor:   NVIDIA
+    VRAM:     6052 MB
+    Driver:   27.21.14.6627
+Initialize mono
+Mono path[0] = 'D:/Programs/unity engine/2021.1.3f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Programs/unity engine/2021.1.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Programs/unity engine/2021.1.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56464
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Programs/unity engine/2021.1.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001450 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 132.93 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.864 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.004509 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 122.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.397 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3383 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 128.3 MB.
+System memory in use after: 128.4 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 3836.
+Total: 3.223500 ms (FindLiveObjects: 0.382000 ms CreateObjectMapping: 0.120700 ms MarkObjects: 2.561800 ms  DeleteObjects: 0.157600 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Scripts/PlayerController.cs
+  artifactKey: Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PlayerController.cs using Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b80ecb2e14ce594a06fc784ecdfdcf9') in 0.115057 seconds 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.89 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 61.4 MB.
+System memory in use after: 61.5 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3836.
+Total: 3.159100 ms (FindLiveObjects: 0.423400 ms CreateObjectMapping: 0.087400 ms MarkObjects: 2.535700 ms  DeleteObjects: 0.111500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 687.945354 seconds.
+  path: Assets/Scripts/PlayerController.cs
+  artifactKey: Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PlayerController.cs using Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ca290db00745b7338b44a31da9c9a6a') in 0.002965 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 148.117381 seconds.
+  path: Assets/Scripts/PlayerController.cs
+  artifactKey: Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PlayerController.cs using Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ee1f3b0c709a5955aae45357d5deff5') in 0.002938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 344.098113 seconds.
+  path: Assets/Scripts/PlayerController.cs
+  artifactKey: Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PlayerController.cs using Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e77e1dd755494016687b8132d427a8a') in 0.002916 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 121.197266 seconds.
+  path: Assets/Scripts/PlayerController.cs
+  artifactKey: Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PlayerController.cs using Guid(52f69786a5ce05542a967e87d6c444fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89e9f72bfd750d69a71a0189d285d951') in 0.003675 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

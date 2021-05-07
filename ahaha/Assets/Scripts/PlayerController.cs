@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform GroundCheck;
     int jumpValue=1;
     SpriteRenderer sprite;  
+    
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -29,32 +30,46 @@ public class PlayerController : MonoBehaviour
     {   if (joystick.Horizontal > 0) { sprite.flipX = false; }
         if (joystick.Horizontal < 0) { sprite.flipX = true; }
         anim.SetFloat("speed",Mathf.Abs(joystick.Horizontal));
-        if (isGround == true) { jumpValue = 1; }
-        //StartCoroutine(enumerator());
+        if (isGround == true) { jumpValue = 1; /*anim.SetBool("Jump", false);*/ }
+        
+        
+
+        
+
     }
 
     private void FixedUpdate()
     {
         transform.Translate(new Vector3(joystick.Horizontal * speed * Time.deltaTime, 0, 0));
         isGround = Physics2D.OverlapCircle(GroundCheck.position, radius, mask);
-        
 
 
-        if (jumpValue>0) 
-        { 
-            rb.velocity = Vector2.up * joystick.Vertical*jumphigh; 
+
+        if (jumpValue > 0 && joystick.Vertical > 0.7)
+        {
+
+            anim.SetBool("Jump", true);
+            rb.velocity = Vector2.up * jumphigh;
             jumpValue--;
-            StartCoroutine(enumerator());
+
         }
+
         
+        else { anim.SetBool("Jump", false); }
+
+
+
+
+
+
+
+
+
 
 
 
 
 
     }
-    IEnumerator enumerator()
-    { 
-        yield return new WaitForSecondsRealtime(5);
-    }   
+    
 }

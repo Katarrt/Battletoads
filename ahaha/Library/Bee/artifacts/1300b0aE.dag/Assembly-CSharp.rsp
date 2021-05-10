@@ -341,6 +341,7 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/VSSettingsProvider.ref.dll"
+"Assets/Bullet.cs"
 "Assets/Joystick Pack/Examples/JoystickPlayerExample.cs"
 "Assets/Joystick Pack/Examples/JoystickSetterExample.cs"
 "Assets/Joystick Pack/Scripts/Base/Joystick.cs"

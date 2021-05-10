@@ -529,7 +529,7 @@ Transform:
   m_LocalScale: {x: 0.31929684, y: 0.31929684, z: 0.31929684}
   m_Children: []
   m_Father: {fileID: 2038550765}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &553179669
 GameObject:
@@ -1104,11 +1104,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267638363}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.61687, y: -0.06425189, z: 0.0912815}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: -1.04, y: -5.15, z: 0}
+  m_LocalScale: {x: 0.3131882, y: 0.3131882, z: 0.3131882}
   m_Children: []
-  m_Father: {fileID: 2038550765}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1267638365
 MonoBehaviour:
@@ -1122,9 +1122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f814f67682b33047913c626f8639e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
-  bulletDamage: 15
-  bulletRb: {fileID: 1267638367}
+  BulletSpeed: 15
+  BulletDamage: 15
+  BulletRb: {fileID: 1267638367}
 --- !u!58 &1267638366
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1455,7 +1455,7 @@ Transform:
   m_LocalScale: {x: 0.31929684, y: 0.31929684, z: 0.31929684}
   m_Children: []
   m_Father: {fileID: 2038550765}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833063228
 GameObject:
@@ -1728,7 +1728,6 @@ Transform:
   m_LocalPosition: {x: -3.42, y: 0.01, z: -0.2858829}
   m_LocalScale: {x: 3.131882, y: 3.131882, z: 3.131882}
   m_Children:
-  - {fileID: 1267638364}
   - {fileID: 1831246143}
   - {fileID: 519420032}
   m_Father: {fileID: 0}

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyBroken;
     public int Numbofh;
-    
+    bool FacingRight=true;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour
 
     
     void Update()
-    {   if (joystick.Horizontal > 0) { sprite.flipX = false; }
-        if (joystick.Horizontal < 0) { sprite.flipX = true; }
+    {   if (joystick.Horizontal > 0 && !FacingRight) { Flip();/*sprite.flipX = false; shootPoint.transform.position = new Vector2(0.199f, transform.position.y);*/ }
+        if (joystick.Horizontal < 0 && FacingRight) { Flip();/*sprite.flipX = true; shootPoint.transform.position = new Vector2(-0.199f,transform.position.y);*/ }
         anim.SetFloat("speed",Mathf.Abs(joystick.Horizontal));
         if (isGround == true) { jumpValue = 1; /*anim.SetBool("Jump", false);*/ }
         
@@ -63,7 +63,16 @@ public class PlayerController : MonoBehaviour
                 hearts[i].sprite = emptyBroken;
             }
         }
-        transform.Translate(new Vector3(joystick.Horizontal * speed * Time.deltaTime, 0, 0));
+        if (joystick.Horizontal>0)
+        {
+            transform.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
+        }
+        if (joystick.Horizontal < 0)
+        {
+            transform.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
+        }
+        //transform.Translate(new Vector3(joystick.Horizontal * speed * Time.deltaTime, 0, 0));
+
         isGround = Physics2D.OverlapCircle(GroundCheck.position, radius, mask);
 
 
@@ -89,6 +98,12 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("shoot", true);
         Instantiate(bullet, shootPoint.position, transform.rotation);
+    }
+
+    void Flip() {
+        FacingRight = !FacingRight;
+        transform.Rotate(0f, 180f, 0f);
+
     }
 
 

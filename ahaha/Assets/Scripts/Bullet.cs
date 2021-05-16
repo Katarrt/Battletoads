@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     public Vector3 Direction { set { direction = value; } }
     private GameObject parent;
     public GameObject Parent { set { parent = value; } get { return parent; } }
-
+    Rigidbody2D rb;
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -19,11 +19,14 @@ public class Bullet : MonoBehaviour
     }
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 1.4f);
     }
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        //transform.Translate(transform.right* speed * Time.deltaTime);
+        rb.velocity = transform.right * speed;
     }
 
     public void OnTriggerEnter2D(Collider2D collider)

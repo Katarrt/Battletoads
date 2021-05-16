@@ -37,4 +37,17 @@ public class Enemy : MonoBehaviour
 
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            PlayerController.health--;
+            StartCoroutine(KD());
+        }
+    }
+    IEnumerator KD()
+    {
+        yield return new WaitForSecondsRealtime(3);
+    }
 }
+

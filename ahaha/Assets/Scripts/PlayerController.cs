@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,10 +15,15 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     bool isGround;
     [SerializeField] Transform GroundCheck;
-    int jumpValue=1;
+    int jumpValue = 1;
     SpriteRenderer sprite;
     public Transform shootPoint;
     public GameObject bullet;
+    public static float health=3;
+    public Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyBroken;
+    public int Numbofh;
     
     void Start()
     {
@@ -42,6 +48,21 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (health > Numbofh)
+        {
+            health = Numbofh;
+        }
+        for (int i = 0; i < hearts.Length; i++) 
+        {
+            if (i < Mathf.RoundToInt(health))
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else 
+            {
+                hearts[i].sprite = emptyBroken;
+            }
+        }
         transform.Translate(new Vector3(joystick.Horizontal * speed * Time.deltaTime, 0, 0));
         isGround = Physics2D.OverlapCircle(GroundCheck.position, radius, mask);
 
@@ -68,12 +89,8 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("shoot", true);
         Instantiate(bullet, shootPoint.position, transform.rotation);
-        
-       
-       
-
     }
- 
+    
     
 }
 

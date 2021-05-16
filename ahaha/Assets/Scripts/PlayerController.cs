@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     bool isGround;
     [SerializeField] Transform GroundCheck;
     int jumpValue=1;
-    SpriteRenderer sprite;  
+    SpriteRenderer sprite;
+    public Transform shootPoint;
+    public GameObject bullet;
     
     void Start()
     {
@@ -58,18 +60,21 @@ public class PlayerController : MonoBehaviour
         else { anim.SetBool("Jump", false); }
 
 
+    }
 
 
 
+    public void Shoot() {
 
-
-
-
-
-
-
-
+        anim.SetBool("shoot", true);
+        Instantiate(bullet, shootPoint.position, transform.rotation);
+        
+       
+       
 
     }
+ 
     
 }
+
+

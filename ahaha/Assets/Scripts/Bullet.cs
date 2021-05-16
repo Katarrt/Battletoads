@@ -1,29 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Bullet : MonoBehaviour
 {
+    [SerializeField]
+    public Vector3 direction;
+    private float speed = 30f;
+    private SpriteRenderer sprite;
+    public Vector3 Direction { set { direction = value; } }
+    private GameObject parent;
+    public GameObject Parent { set { parent = value; } get { return parent; } }
 
-    public float BulletSpeed = 7f;
-    public float BulletDamage = 15f;
-    //public Rigidbody2D BulletRb;
+    private void Awake()
+    {
+        sprite = GetComponentInChildren<SpriteRenderer>();
 
+
+    }
+    private void Start()
+    {
+        Destroy(gameObject, 1.4f);
+    }
     private void Update()
     {
-        this.gameObject.transform.Translate(Vector2.right * BulletSpeed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-       
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy"))
+        Enemy unit = collider.GetComponent<Enemy>();
+        if (unit && unit.gameObject != parent)
         {
-
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

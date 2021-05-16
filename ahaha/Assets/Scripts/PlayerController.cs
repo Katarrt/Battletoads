@@ -90,8 +90,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("shoot", true);
         Instantiate(bullet, shootPoint.position, transform.rotation);
     }
-    
-    
-}
 
+
+}
 

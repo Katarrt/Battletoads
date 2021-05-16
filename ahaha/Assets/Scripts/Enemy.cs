@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     Vector2 target;
     public float speed;
     SpriteRenderer sprite;
+    
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -15,7 +16,15 @@ public class Enemy : MonoBehaviour
         target = new Vector2(player.transform.position.x, player.transform.position.y);
 
     }
+    public virtual void ReceivedDamage()
+    {
+        Die();
+    }
 
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
+    }
 
     void Update()
     {
@@ -44,6 +53,12 @@ public class Enemy : MonoBehaviour
             PlayerController.health--;
             StartCoroutine(KD());
         }
+        Bullet bullet = collision.GetComponent<Bullet>();
+        if (bullet)
+        {
+            Die();
+        }
+
     }
     IEnumerator KD()
     {

@@ -348,8 +348,10 @@
 "Assets/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs"
 "Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs"
 "Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs"
+"Assets/Scripts/Adasgasgha.cs"
 "Assets/Scripts/Bullet.cs"
 "Assets/Scripts/Enemy.cs"
+"Assets/Scripts/GroundDetection.cs"
 "Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/PlayerController.cs"
 -langversion:8.0

@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    Joystick joystick;
+    //Joystick joystick;
     public float speed;
     public LayerMask mask;
+    int playerMask,groundMask;
     public float radius;
     Rigidbody2D rb;
     public float jumphigh = 8;
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     bool isGround;
     [SerializeField] Transform GroundCheck;
     int jumpValue = 1;
-    SpriteRenderer sprite;
+    //SpriteRenderer sprite;
     public Transform shootPoint;
     public GameObject bullet;
     public static float health=3;
@@ -25,29 +26,48 @@ public class PlayerController : MonoBehaviour
     public Sprite emptyBroken;
     public int Numbofh;
     bool FacingRight=true;
+    float stopShoot = 0.3f;
+    
+
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        //sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        joystick = FindObjectOfType<Joystick>();
-        
+        //joystick = FindObjectOfType<Joystick>();
+        playerMask = LayerMask.NameToLayer("Player");
+        groundMask = LayerMask.NameToLayer("Ground");
+
     }
 
     
     void Update()
-    {   if (joystick.Horizontal > 0 && !FacingRight) { Flip();/*sprite.flipX = false; shootPoint.transform.position = new Vector2(0.199f, transform.position.y);*/ }
-        if (joystick.Horizontal < 0 && FacingRight) { Flip();/*sprite.flipX = true; shootPoint.transform.position = new Vector2(-0.199f,transform.position.y);*/ }
-        anim.SetFloat("speed",Mathf.Abs(joystick.Horizontal));
+    {
+        Debug.Log(stopShoot);
+        if (Input.GetKey(KeyCode.K))
+        {
+            
+            Shoot();
+            
+        }
+        if (/*joystick.Horizontal*//* > 0*/Input.GetKey(KeyCode.D) && !FacingRight) { Flip();/*sprite.flipX = false; shootPoint.transform.position = new Vector2(0.199f, transform.position.y);*/ }
+        if (/*joystick.Horizontal*//* < 0*/Input.GetKey(KeyCode.A) && FacingRight) { Flip();/*sprite.flipX = true; shootPoint.transform.position = new Vector2(-0.199f,transform.position.y);*/ }
+        //anim.SetFloat("speed",Mathf.Abs(joystick.Horizontal));
         if (isGround == true) { jumpValue = 1; /*anim.SetBool("Jump", false);*/ }
-        
-        
 
-        
+        if (rb.velocity.y > 0)
+        {
+            Physics2D.IgnoreLayerCollision(playerMask, groundMask, true);
+        }
+
+        else { Physics2D.IgnoreLayerCollision(playerMask, groundMask, false); }
+
+        Run();
 
     }
 
     private void FixedUpdate()
     {
+        
         if (health > Numbofh)
         {
             health = Numbofh;
@@ -63,21 +83,17 @@ public class PlayerController : MonoBehaviour
                 hearts[i].sprite = emptyBroken;
             }
         }
-        if (joystick.Horizontal>0)
-        {
-            transform.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
-        }
-        if (joystick.Horizontal < 0)
-        {
-            transform.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
-        }
+
+
+      
+      
         //transform.Translate(new Vector3(joystick.Horizontal * speed * Time.deltaTime, 0, 0));
 
         isGround = Physics2D.OverlapCircle(GroundCheck.position, radius, mask);
 
 
 
-        if (jumpValue > 0 && joystick.Vertical > 0.7)
+        if (jumpValue > 0 && /*joystick.Vertical > 0.7*/Input.GetKey(KeyCode.W))
         {
 
             anim.SetBool("Jump", true);
@@ -95,14 +111,46 @@ public class PlayerController : MonoBehaviour
 
 
     public void Shoot() {
-
+        
         anim.SetBool("shoot", true);
-        Instantiate(bullet, shootPoint.position, transform.rotation);
+        
+        stopShoot -= Time.deltaTime;
+        if (stopShoot<=0)
+        {
+            Instantiate(bullet, shootPoint.position, transform.rotation);
+            stopShoot = 0.3f;
+        }
+        
+      
+        
     }
+
+  
 
     void Flip() {
         FacingRight = !FacingRight;
         transform.Rotate(0f, 180f, 0f);
+
+    }
+
+    void Run() {
+
+        if (/*joystick.Horizontal < 0*/Input.GetKey(KeyCode.A))
+        {
+            //anim.SetBool("Run", true);
+            anim.SetFloat("speed", 0.2f);
+            transform.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
+
+        }
+        else if (/*joystick.Horizontal>0*/Input.GetKey(KeyCode.D))
+        {
+            //anim.SetBool("Run" , true);
+            anim.SetFloat("speed", 0.2f);
+            transform.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
+
+        }
+
+        else { anim.SetBool("Run", false); anim.SetFloat("speed", 0); }
 
     }
 

@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     float MaxRight;
     float MaxLeft;
     Rigidbody2D rb;
-    bool isFlip=true;
+    //bool isFlip=true;
     
     void Start()
     {
@@ -83,13 +83,13 @@ public class Enemy : MonoBehaviour
         if (GroundDetection.Move==true )
         {
             this.transform.position = new Vector3(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y, this.transform.position.z);
-            isFlip = false;
+            //isFlip = false;
             sprite.flipX = true;
         }
         if (GroundDetection.Move == false )
         {
             this.transform.position = new Vector3(this.transform.position.x - speed * Time.deltaTime, this.transform.position.y, this.transform.position.z);
-            isFlip = true;
+            //isFlip = true;
             sprite.flipX = false;
         }
         ////else if (isFlip == true && this.transform.position.x < MaxLeft)

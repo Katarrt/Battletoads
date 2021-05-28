@@ -21,7 +21,7 @@ public class GroundDetection : MonoBehaviour
         if (raycast.collider == null /* && raycast.collider.CompareTag("Platform")*/)
         {
             Move = !Move;
-            Debug.Log(Move);
+            //Debug.Log(Move);
         }
         //else {
         //    Move = false;

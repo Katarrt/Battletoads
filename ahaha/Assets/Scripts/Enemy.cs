@@ -9,20 +9,20 @@ public class Enemy : MonoBehaviour
     public float speed;
     SpriteRenderer sprite;
     Vector3 ThisPos;
-    float MaxRight;
-    float MaxLeft;
+    //float MaxRight;
+    //float MaxLeft;
     Rigidbody2D rb;
     //bool isFlip=true;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        ThisPos = this.transform.position;
+        //ThisPos = this.transform.position;
         sprite = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         target = new Vector2(player.transform.position.x, player.transform.position.y);
-        MaxRight = ThisPos.x + 5;
-        MaxLeft = ThisPos.x - 5;
+        //MaxRight = ThisPos.x + 5;
+        //MaxLeft = ThisPos.x - 5;
 
     }
     public virtual void ReceivedDamage()
@@ -32,7 +32,8 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 
     void Update()
@@ -86,18 +87,13 @@ public class Enemy : MonoBehaviour
             //isFlip = false;
             sprite.flipX = true;
         }
-        if (GroundDetection.Move == false )
+        else if (GroundDetection.Move == false )
         {
             this.transform.position = new Vector3(this.transform.position.x - speed * Time.deltaTime, this.transform.position.y, this.transform.position.z);
             //isFlip = true;
             sprite.flipX = false;
         }
-        ////else if (isFlip == true && this.transform.position.x < MaxLeft)
-        ////{
-
-        ////    isFlip = false;
-        ////    sprite.flipX = true;
-        ////}
+       
 
 
 

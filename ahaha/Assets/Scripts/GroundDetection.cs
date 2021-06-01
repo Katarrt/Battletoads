@@ -17,7 +17,7 @@ public class GroundDetection : MonoBehaviour
     void Update()
     {
         raycast = Physics2D.Raycast(this.transform.position, Vector2.down,2);
-        Debug.DrawLine(this.transform.position, Vector2.down, Color.red);
+        //Debug.DrawLine(this.transform.position, Vector2.down, Color.red);
         if (raycast.collider == null /* && raycast.collider.CompareTag("Platform")*/)
         {
             Move = !Move;

@@ -27,10 +27,11 @@ public class PlayerController : MonoBehaviour
     public int Numbofh;
     bool FacingRight=true;
     float stopShoot = 0.3f;
-    
+    Transform tr;
 
     void Start()
     {
+        tr = GetComponent<Transform>();
         //sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         //joystick = FindObjectOfType<Joystick>();
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(stopShoot);
+        //Debug.Log(stopShoot);
         if (Input.GetKey(KeyCode.K))
         {
             
@@ -67,26 +68,26 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
         if (health > Numbofh)
         {
             health = Numbofh;
         }
-        for (int i = 0; i < hearts.Length; i++) 
+        for (int i = 0; i < hearts.Length; i++)
         {
             if (i < Mathf.RoundToInt(health))
             {
                 hearts[i].sprite = fullHeart;
             }
-            else 
+            else
             {
                 hearts[i].sprite = emptyBroken;
             }
         }
 
+      
 
-      
-      
+
         //transform.Translate(new Vector3(joystick.Horizontal * speed * Time.deltaTime, 0, 0));
 
         isGround = Physics2D.OverlapCircle(GroundCheck.position, radius, mask);
@@ -107,6 +108,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
 
 
 
@@ -139,14 +141,14 @@ public class PlayerController : MonoBehaviour
         {
             //anim.SetBool("Run", true);
             anim.SetFloat("speed", 0.2f);
-            transform.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
+            tr.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
 
         }
         else if (/*joystick.Horizontal>0*/Input.GetKey(KeyCode.D))
         {
             //anim.SetBool("Run" , true);
             anim.SetFloat("speed", 0.2f);
-            transform.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
+            tr.Translate(new Vector3(1 * speed * Time.deltaTime, 0, 0));
 
         }
 
